@@ -4,12 +4,17 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>EDC Detect</title>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@600&family=Open+Sans:wght@400&display=swap" rel="stylesheet">
-   <link rel="stylesheet" href="https://cdn.datatables.net/1.13.6/css/jquery.dataTables.min.css">
+    <link rel="stylesheet" href="https://cdn.datatables.net/1.13.6/css/jquery.dataTables.min.css">
     <link rel="stylesheet" href="styles.css">
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-<script src="https://cdn.datatables.net/1.13.6/js/jquery.dataTables.min.js"></script>
+    <script src="https://cdn.datatables.net/1.13.6/js/jquery.dataTables.min.js"></script>
     <style>
-    /* === NAVBAR === */
+    /* === FIXED HEADER & BODY PADDING === */
+    body {
+        padding-top: 70px; /* ensures content is below fixed nav */
+        font-family: 'Open Sans', sans-serif;
+    }
+
     nav {
         display: flex;
         justify-content: space-between;
@@ -23,21 +28,20 @@
         z-index: 1000;
         box-shadow: 0 3px 8px rgba(0,0,0,0.15);
     }
+
     nav a {
         color: white;
         text-decoration: none;
         margin: 0 10px;
     }
 
-    /* HAMBURGER (desktop hide) */
     .menu-toggle {
-        display: none !important;
+        display: none;
         font-size: 24px;
         cursor: pointer;
         color: white;
     }
 
-    /* MOBILE VIEW */
     @media (max-width: 768px) {
         nav a {
             display: none;
@@ -57,8 +61,24 @@
             display: flex;
         }
         .menu-toggle {
-            display: block !important;
+            display: block;
         }
+    }
+
+    /* HERO IMAGE FIX */
+    .hero-stack {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        position: relative;
+        overflow: hidden;
+        max-width: 100%;
+    }
+    .hero-stack img {
+        width: 100%;
+        max-width: 400px;
+        height: auto;
+        margin: 0 10px;
     }
 
     /* TABLE RESPONSIVE */
@@ -83,16 +103,16 @@
 
 <body>
     <!-- Navigation Menu -->
-   <nav>
-  <div class="logo">EDC Detect</div>
-  <div class="menu-toggle" id="menu-toggle">&#9776;</div>  <!-- hanya SATU hamburger -->
-  <div class="nav-links" id="nav-links">
-    <a href="#header">Ingredient Checker</a>
-    <a href="#aboutSection">About Us</a>
-    <a href="#edcSection">About EDCs</a>
-    <a href="#resultSection">Results</a>
-  </div>
-</nav>
+    <nav>
+        <div class="logo">EDC Detect</div>
+        <div class="menu-toggle" id="menu-toggle">&#9776;</div> <!-- only ONE hamburger -->
+        <div class="nav-links" id="nav-links">
+            <a href="#header">Ingredient Checker</a>
+            <a href="#aboutSection">About Us</a>
+            <a href="#edcSection">About EDCs</a>
+            <a href="#resultSection">Results</a>
+        </div>
+    </nav>
 
     <!-- Hero Section -->
     <div class="hero-stack">
@@ -132,7 +152,7 @@
     <div class="container" id="resultSection">
         <h2>RESULT</h2>
         <div class="table-wrapper table-container">
-    <table id="resultTable" class="display">
+            <table id="resultTable" class="display">
                 <thead>
                     <tr>
                         <th>Name</th>
