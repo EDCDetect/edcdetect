@@ -708,3 +708,17 @@ footer {
     gap: 10px;
   }
 }
+
+.menu-toggle {
+  display: none !important; /* confirm hilang desktop */
+  font-size: 24px;
+  cursor: pointer;
+  color: white;
+}
+
+/* Mobile view */
+@media (max-width: 768px) {
+  .menu-toggle {
+    display: block !important; /* confirm keluar mobile */
+  }
+}
