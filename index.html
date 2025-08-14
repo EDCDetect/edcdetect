@@ -8,17 +8,94 @@
     <link rel="stylesheet" href="styles.css">
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <link rel="stylesheet" href="https://cdn.datatables.net/1.11.5/css/jquery.dataTables.min.css">
+    <style>
+    /* === NAVBAR === */
+    nav {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        background: linear-gradient(90deg, #2193b0, #6dd5ed);
+        padding: 12px 20px;
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        z-index: 1000;
+        box-shadow: 0 3px 8px rgba(0,0,0,0.15);
+    }
+    nav a {
+        color: white;
+        text-decoration: none;
+        margin: 0 10px;
+    }
+
+    /* HAMBURGER (desktop hide) */
+    .menu-toggle {
+        display: none !important;
+        font-size: 24px;
+        cursor: pointer;
+        color: white;
+    }
+
+    /* MOBILE VIEW */
+    @media (max-width: 768px) {
+        nav a {
+            display: none;
+        }
+        nav .nav-links {
+            display: none;
+            flex-direction: column;
+            background: linear-gradient(90deg, #2193b0, #6dd5ed);
+            position: absolute;
+            top: 60px;
+            right: 0;
+            width: 220px;
+            padding: 10px;
+            border-radius: 0 0 8px 8px;
+        }
+        nav .nav-links.show {
+            display: flex;
+        }
+        .menu-toggle {
+            display: block !important;
+        }
+    }
+
+    /* TABLE RESPONSIVE */
+    .table-container {
+        width: 100%;
+        overflow-x: auto;
+    }
+    table {
+        border-collapse: collapse;
+        width: 100%;
+        min-width: 600px;
+    }
+    th, td {
+        border: 1px solid #ddd;
+        padding: 8px;
+        text-align: left;
+        vertical-align: top;
+        white-space: normal;
+    }
+    th {
+        background-color: #f2f2f2;
+    }
+</style>
 </head>
 
 <body>
     <!-- Navigation Menu -->
-    <nav>
+   <nav>
+    <div class="logo">EDC Detect</div>
+    <div class="menu-toggle" id="menu-toggle">&#9776;</div>
+    <div class="nav-links" id="nav-links">
         <a href="#header">Ingredient Checker</a>
         <a href="#aboutSection">About Us</a>
         <a href="#edcSection">About EDCs</a>
         <a href="#resultSection">Results</a>
-    </nav>
-
+    </div>
+</nav>
     <!-- Main Content -->
 <div class="hero-stack">
   <img src="img/product 2.jpg" class="card active" alt="product 2">
@@ -64,7 +141,8 @@
 
     <div class="container" id="resultSection">
         <h2>RESULT</h2>
-        <table id="resultTable" class="display">
+       <div class="table-container">
+    <table id="resultTable" class="display">
             <thead>
                 <tr>
                     <th>Name</th>
@@ -164,6 +242,12 @@ document.addEventListener("DOMContentLoaded", () => {
 
   updateStack(); // first load
 });
+</script>
+
+<script>
+    document.getElementById("menu-toggle").addEventListener("click", function() {
+        document.getElementById("nav-links").classList.toggle("show");
+    });
 </script>
 </body>
 </html>

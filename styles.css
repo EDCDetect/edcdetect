@@ -722,3 +722,20 @@ footer {
     display: block !important; /* confirm keluar mobile */
   }
 }
+
+.table-container {
+    width: 100%;
+    overflow-x: auto;
+}
+.table-container table {
+    width: 100%;
+    min-width: 600px; /* supaya column tak sempit sangat */
+}
+
+/* Pastikan gambar dalam EDC section tak overflow */
+#edcSection img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+    margin: 10px auto;
+}
