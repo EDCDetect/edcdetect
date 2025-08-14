@@ -898,3 +898,49 @@ nav a {
     height: auto;
     display: block;
 }
+
+.header {
+    position: relative;
+}
+
+.hamburger {
+    position: absolute;
+    top: 15px;  /* jarak dari atas */
+    right: 15px; /* jarak dari kanan */
+    z-index: 1000; /* pastikan atas semua elemen lain */
+    background: rgba(255,255,255,0.8); /* ada background supaya tak blend dengan gambar */
+    padding: 8px;
+    border-radius: 6px;
+}
+
+/* Nav menu responsive */
+.nav-menu {
+    display: none;
+    flex-direction: column;
+    background: white;
+    position: absolute;
+    top: 60px;
+    right: 15px;
+    padding: 10px;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+}
+
+.nav-menu.active {
+    display: flex;
+}
+
+/* Table supaya kekal horizontal di mobile */
+#resultTable {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+#resultTable th, 
+#resultTable td {
+    white-space: nowrap; /* supaya teks tak turun ke bawah */
+}
+
+.table-wrapper {
+    overflow-x: auto; /* allow horizontal scroll */
+}
