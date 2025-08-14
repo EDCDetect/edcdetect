@@ -812,3 +812,89 @@ footer {
         display: flex;
     }
 }
+
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: linear-gradient(90deg, #2193b0, #6dd5ed);
+    padding: 12px 20px;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 1000;
+    box-shadow: 0 3px 8px rgba(0,0,0,0.15);
+}
+nav a {
+    color: white;
+    text-decoration: none;
+    margin: 0 10px;
+}
+
+/* HAMBURGER (desktop hide) */
+.menu-toggle {
+    display: none !important;
+    font-size: 24px;
+    cursor: pointer;
+    color: white;
+}
+
+/* MOBILE VIEW */
+@media (max-width: 768px) {
+    nav a {
+        display: none;
+    }
+    nav .nav-links {
+        display: none;
+        flex-direction: column;
+        background: linear-gradient(90deg, #2193b0, #6dd5ed);
+        position: absolute;
+        top: 60px;
+        right: 0;
+        width: 220px;
+        padding: 10px;
+        border-radius: 0 0 8px 8px;
+    }
+    nav .nav-links.show {
+        display: flex;
+    }
+    .menu-toggle {
+        display: block !important;
+    }
+}
+
+/* TABLE RESPONSIVE */
+.table-container {
+    width: 100%;
+    overflow-x: auto;
+}
+.table-container table {
+    width: 100%;
+    border-collapse: collapse;
+    table-layout: auto; /* Pastikan horizontal scroll, bukan stack */
+    min-width: 600px;   /* Maintain kolum */
+}
+
+/* JANGAN STACK TABLE PADA MOBILE */
+@media (max-width: 768px) {
+    table, thead, tbody, th, td, tr {
+        display: table;
+        width: auto;
+    }
+}
+
+/* GAMBAR EDC FIT */
+#edcSection img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+    margin: 10px auto;
+}
+
+/* HERO IMAGE (elak kecik sgt kat mobile & elak overlap hamburger) */
+.hero-stack img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+}
