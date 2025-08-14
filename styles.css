@@ -739,3 +739,40 @@ footer {
     display: block;
     margin: 10px auto;
 }
+
+/* Hide hamburger by default */
+.menu-icon {
+  display: none;
+}
+
+/* Navbar menu styling for mobile */
+@media screen and (max-width: 768px) {
+  .menu-icon {
+    display: block;
+    font-size: 24px;
+    cursor: pointer;
+    padding: 10px;
+  }
+
+  .nav-links {
+    display: none;
+    flex-direction: column;
+    background: white;
+    position: absolute;
+    top: 60px;
+    right: 0;
+    width: 200px;
+    border: 1px solid #ccc;
+    z-index: 1000;
+  }
+
+  .nav-links.show {
+    display: flex;
+  }
+}
+
+/* Make table scroll horizontally in mobile */
+.table-container {
+  width: 100%;
+  overflow-x: auto;
+}
