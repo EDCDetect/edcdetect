@@ -944,3 +944,90 @@ nav a {
 .table-wrapper {
     overflow-x: auto; /* allow horizontal scroll */
 }
+
+/* =========================
+   🔧 QUICK PATCH (KEEP HORIZ TABLE + FIX NAV)
+   Tampal di hujung styles.css
+   ========================= */
+
+:root { --nav-h: 64px; }
+
+/* Pastikan content tak tertutup navbar fixed */
+body { padding-top: var(--nav-h); }
+
+/* Samakan tinggi + layer navbar */
+nav {
+  height: var(--nav-h);
+  display: flex;
+  align-items: center;
+  z-index: 1000;            /* atas hero image */
+}
+
+/* Hanya satu hamburger je wujud (guna .menu-toggle sedia ada) */
+.menu-icon, .hamburger { display: none !important; }
+
+/* Default: link nampak (desktop) */
+nav .nav-links {
+  display: flex;
+  gap: 8px;
+}
+
+/* Mobile rules */
+@media (max-width: 768px) {
+  /* Sembunyi link by default; show bila .show ditambah via JS */
+  nav .nav-links {
+    display: none;
+    position: fixed;
+    top: var(--nav-h);
+    right: 0;
+    width: 240px;
+    max-height: calc(100vh - var(--nav-h));
+    overflow: auto;
+    flex-direction: column;
+    background: linear-gradient(90deg, #2193b0, #6dd5ed);
+    padding: 10px 12px;
+    border-radius: 0 0 0 12px;
+    box-shadow: 0 6px 18px rgba(0,0,0,.2);
+    z-index: 1100; /* atas hero image */
+  }
+  nav .nav-links.show { display: flex; }
+
+  /* Tunjuk satu je hamburger (guna class .menu-toggle yang sedia ada dalam HTML kau) */
+  .menu-toggle {
+    display: block !important;
+    position: fixed;
+    top: 12px;
+    right: 16px;
+    font-size: 26px;
+    line-height: 1;
+    cursor: pointer;
+    color: #fff;
+    z-index: 1200; /* atas semua */
+  }
+}
+
+/* --- KEEP TABLE HORIZONTAL ON MOBILE --- */
+/* Ada rule lama kau yang jadikan table stack (display:block).
+   Kita override balik supaya kekal horizontal + boleh scroll sideway. */
+.table-container { overflow-x: auto; }
+
+@media (max-width: 768px) {
+  table { display: table; width: 100%; border-collapse: collapse; }
+  thead { display: table-header-group; }
+  tbody { display: table-row-group; }
+  tr    { display: table-row; }
+  th, td{ display: table-cell; }
+}
+
+/* Hero: jangan kena “cover” oleh navbar/hamburger */
+.hero-stack {
+  position: relative;
+  margin-top: 10px;       /* body dah ada padding-top */
+  z-index: 1;             /* di bawah navbar */
+}
+.hero-stack img.card {
+  width: 100%;
+  height: auto;
+  max-height: 260px;      /* boleh adjust */
+  object-fit: cover;
+}

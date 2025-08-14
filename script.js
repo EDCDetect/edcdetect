@@ -82,20 +82,13 @@ function moveCarousel() {
 
 setInterval(moveCarousel, 3000);
 
-document.addEventListener("DOMContentLoaded", function () {
-    const hamburger = document.querySelector(".hamburger");
-    const navMenu = document.querySelector(".nav-menu");
+document.addEventListener('DOMContentLoaded', function () {
+  const toggler = document.getElementById('menu-toggle');
+  const menu    = document.getElementById('nav-links');
 
-    hamburger.addEventListener("click", function () {
-        navMenu.classList.toggle("active");
+  if (toggler && menu) {
+    toggler.addEventListener('click', function () {
+      menu.classList.toggle('show');
     });
-});
-
-document.addEventListener("DOMContentLoaded", function () {
-    const hamburger = document.querySelector(".hamburger");
-    const navMenu = document.querySelector(".nav-menu");
-
-    hamburger.addEventListener("click", function () {
-        navMenu.classList.toggle("active");
-    });
+  }
 });
