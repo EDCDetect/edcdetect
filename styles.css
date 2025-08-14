@@ -776,3 +776,39 @@ footer {
   width: 100%;
   overflow-x: auto;
 }
+
+/* HERO IMAGE FIX */
+.hero-stack img {
+    width: 100%;
+    height: auto;
+    max-height: 300px; /* kalau nak limit tinggi */
+    object-fit: cover;
+}
+
+/* SUPAYA GAMBAR TAK TERSELIT BAWAH NAVBAR */
+.hero-stack {
+    margin-top: 70px; /* tinggi lebih sikit dari navbar */
+}
+
+/* MOBILE VIEW - hanya navbar tukar */
+@media (max-width: 768px) {
+    .hero-stack img {
+        max-height: 220px; /* sikit kecik tapi tak terlampau */
+    }
+
+    .menu-toggle {
+        display: block;
+    }
+
+    nav .nav-links {
+        display: none;
+        position: absolute;
+        top: 60px;
+        right: 0;
+        width: 220px;
+    }
+
+    nav .nav-links.show {
+        display: flex;
+    }
+}
