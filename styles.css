@@ -692,11 +692,14 @@ nav.scrolled .nav-links a {
     text-align: justify;
 }
 
-.navbar-nav {
-    margin-left: auto; /* tolak semua item ke kanan */
+/* Override untuk bagi menu keluar dari kanan */
+#nav-links {
+    left: auto !important;
+    right: -250px !important;
+    transition: right 0.3s ease !important;
 }
 
-.dropdown-menu {
-    right: 0;
-    left: auto; /* pastikan dia align kanan */
+#nav-links.show {
+    left: auto !important;
+    right: 0 !important;
 }
