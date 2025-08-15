@@ -683,16 +683,3 @@ nav.scrolled .nav-links a {
     text-align: center;
     width: 100%; /* pastikan text tak lari kiri/kanan */
 }
-
-html, body {
-    overflow-x: hidden; /* block geseran kiri-kanan */
-}
-
-img {
-    max-width: 100%;
-    height: auto;
-}
-
-table {
-    width: 100% !important;
-}
