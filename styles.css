@@ -683,3 +683,22 @@ nav.scrolled .nav-links a {
     text-align: center;
     width: 100%; /* pastikan text tak lari kiri/kanan */
 }
+
+#aboutSection > p {
+    text-align: justify;
+}
+
+#edcSection p {
+    text-align: justify;
+}
+
+#nav-links {
+    right: -250px;
+    left: auto;
+    transition: right 0.3s ease;
+}
+
+#nav-links.show {
+    right: 0;
+    left: auto;
+}
