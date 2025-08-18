@@ -1,7 +1,8 @@
 $(document).ready(function() {
     $('#resultTable').DataTable({
-        "paging": true,
-        "searching": true,
+        "paging": false,
+        "searching": false,
+        "info": false,
         "ordering": true,
     });
 });

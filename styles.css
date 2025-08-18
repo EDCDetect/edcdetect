@@ -304,7 +304,7 @@ label[for="ingredients"] {
         background-color: #3498DB;
         position: absolute;
         top: 60px;
-        right: 0;
+        left: 0;
         width: 100%;
         padding: 10px 0;
     }
@@ -566,7 +566,7 @@ label[for="ingredients"] {
 nav {
   position: fixed;
   top: 0;
-  right: 0;
+  left: 0;
   width: 100%;
   padding: 15px 20px;
   display: flex;
@@ -704,3 +704,10 @@ nav.scrolled .nav-links a {
     right: 0 !important;
 }
 
+#header,
+#ingredientsSection,
+#aboutSection,
+#resultSection,
+#edcSection {
+  scroll-margin-top: 100px; /* adjust ikut tinggi navbar */
+}
