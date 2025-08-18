@@ -711,3 +711,20 @@ nav.scrolled .nav-links a {
 #edcSection {
   scroll-margin-top: 100px; /* adjust ikut tinggi navbar */
 }
+
+.nav-links {
+  position: fixed;
+  top: 60px; /* ikut tinggi navbar kau */
+  right: -250px; /* mula tersembunyi belah kanan */
+  left: auto;
+  width: 200px;
+  background: #1a73e8;
+  padding: 15px;
+  flex-direction: column;
+  transition: right 0.3s ease;
+  z-index: 1000;
+}
+
+.nav-links.active {
+  right: 0; /* bila toggle, dia slide masuk dari kanan */
+}
